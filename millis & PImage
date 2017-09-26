@@ -1,0 +1,22 @@
+int tiempoDesdeInicio;
+int tiempoTranscurrido;
+PImage imagen;
+
+void setup(){
+  size(500,500);
+  imagen = loadImage("1.jpg");
+}
+
+void draw(){
+  background(255,0,0);
+  tiempoTranscurrido = millis() - tiempoDesdeInicio;
+  if (tiempoDesdeInicio > 0){
+    text(tiempoTranscurrido,30,30);
+  }
+  image(imagen,0,0);
+}
+
+
+void keyPressed(){
+  tiempoDesdeInicio = millis();
+}
