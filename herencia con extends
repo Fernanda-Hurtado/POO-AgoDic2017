@@ -1,0 +1,63 @@
+circulo c1;
+rectangulo r1;
+
+void setup(){
+  size(400,400);
+  c1 = new circulo(20,20,20,0,1);
+  r1 = new rectangulo(50,50,20,0,1);
+}
+
+void draw(){
+  background(0);
+  c1.display();
+  r1.display();
+}
+
+
+class particula{
+  float x,y;
+  int t;
+  float a;
+  float v;  
+ 
+  void movimiento(){
+  x = x + cos(a)*v;
+  y = y + sin(a)*v;
+  } 
+}
+
+class circulo extends particula {
+  
+   circulo (float x_, float y_, int t_, float a_, float v_){
+    x = x_;
+    y = y_;
+    t = t_;
+    a = a_;
+    v = v_;
+  }
+  
+  void display(){
+    super.movimiento();
+    ellipse(x,y,t,t);
+  }
+  
+}
+
+class rectangulo extends particula{
+  
+   rectangulo (float x_, float y_, int t_, float a_, float v_){
+    x= x_;
+    y = y_;
+    t = t_;
+    a = a_;
+    v = v_;
+  }
+  
+  void display(){
+    a+= 0.01;
+    rectMode(CENTER);
+    rect(x,y,t,t);
+    super.movimiento();
+  }
+  
+}
